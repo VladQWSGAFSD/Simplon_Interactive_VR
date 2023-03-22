@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
 
-    [SerializeField] float animWalkSpeed = 0.5f;
-    [SerializeField] float animIdleSpeed = 0.1f;
+    [SerializeField] float animationSpeedWhenMoving = 0.5f;
+    [SerializeField] float animationSpeedWhenIdle = 0.1f;
 
     private bool isWalking = false;
 
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        anim.SetFloat("Speed", animIdleSpeed);
+        anim.SetFloat("Speed", animationSpeedWhenIdle);
     }
 
     // Update is called once per frame
@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
             // Player is still moving, set animation speed to walking speed
             if (!isWalking)
             {
-                anim.SetFloat("Speed", animWalkSpeed);
+                anim.SetFloat("Speed", animationSpeedWhenMoving);
+                Debug.Log("Switched to walking animation");
                 isWalking = true;
             }
         }
@@ -46,9 +47,15 @@ public class PlayerController : MonoBehaviour
             // Player has arrived, set animation speed to idle
             if (isWalking)
             {
-                anim.SetFloat("Speed", animIdleSpeed);
-                isWalking = false;
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    anim.SetFloat("Speed", animationSpeedWhenIdle);
+                    Debug.Log("Switched to idle animation");
+                    isWalking = false;
+                }
             }
         }
+
     }
+
 }
