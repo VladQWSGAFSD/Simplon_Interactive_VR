@@ -15,13 +15,14 @@ public class CharController : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     private NavMeshAgent agent;
-    [SerializeField] Transform navPoint;
+    [SerializeField] Transform[] navPoint;
+    int currentNavpoint = 0;
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(navPoint.position);
+        agent.SetDestination(navPoint[currentNavpoint].position);
     }
 
     void Update()

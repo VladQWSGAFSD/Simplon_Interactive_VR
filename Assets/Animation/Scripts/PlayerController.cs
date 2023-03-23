@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
 
+    [SerializeField] float animRunSpeed = 0.6f;
     [SerializeField] float animWalkSpeed = 0.5f;
     [SerializeField] float animIdleSpeed = 0.1f;
 
