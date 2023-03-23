@@ -38,6 +38,10 @@ Unity.Profiling.ProfilerRecorder::GetLastValue_Injected
 Unity.Profiling.ProfilerRecorder::Control_Injected
 Unity.Profiling.ProfilerRecorder::Create_Injected
 Unity.Profiling.ProfilerRecorder::GetSampleInternal_Injected
+UnityEngine.AI.NavMeshAgent::SetDestination_Injected
+UnityEngine.AI.NavMeshAgent::get_remainingDistance
+UnityEngine.AI.NavMeshAgent::get_stoppingDistance
+UnityEngine.AI.NavMeshAgent::get_velocity_Injected
 UnityEngine.Analytics.Analytics::IsInitialized
 UnityEngine.Analytics.Analytics::RegisterEventWithLimit
 UnityEngine.Analytics.Analytics::SendEventWithLimit
@@ -214,6 +218,7 @@ UnityEngine.AnimationCurve::get_preWrapMode
 UnityEngine.Animations.AnimationLayerMixerPlayable::SetSingleLayerOptimizationInternal
 UnityEngine.Animator::get_hasBoundPlayables
 UnityEngine.Animator::ResetTriggerString
+UnityEngine.Animator::SetFloatString
 UnityEngine.Animator::SetTriggerString
 UnityEngine.Application::get_isBatchMode
 UnityEngine.Application::get_isFocused
